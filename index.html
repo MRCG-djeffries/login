@@ -1,0 +1,42 @@
+    <!DOCTYPE html>    
+    <html>    
+    <head>    
+        <title>Login Form</title>    
+        <link rel="stylesheet" type="text/css" href="css/style.css">    
+        <script type="text/javascript" src="js/sha256.js"></script>
+      
+    </head>    
+    <body>    
+        <h2>Login Page</h2><br>    
+        <div class="login">    
+        <form id="login" method="get" action="login.php">    
+            <label><b>User Name     
+            </b>    
+            </label>    
+            <input type="text" name="Uname" id="Uname" placeholder="Username">    
+            <br><br>    
+            <label><b>Password     
+            </b>    
+            </label>    
+            <input type="Password" name="Pass" id="Pass" placeholder="Password">    
+            <br><br>    
+            <input type="button" onclick="runvalidate()" name="log" id="log" value="Log In">        
+        </form>     
+    </div>    
+    </body>    
+    </html>     
+    <script>
+    function runvalidate(){
+  var hash = CryptoJS.SHA256(document.getElementById("Pass").value);
+  if (document.getElementById("Uname").value=="banky"){
+  	if ((hash.toString(CryptoJS.enc.Hex))=="1287f48678cc4cf23eeb9060f97a6bb4bedc39d34e12061d1b3361d805c7adbd"){
+  		console.log("correct password")
+	}else{
+  		console.log("wrong password")
+	}
+  }else{
+	console.log("not a user name")  
+}
+
+}
+    </script>
